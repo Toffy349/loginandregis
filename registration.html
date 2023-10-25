@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook Registration</title>
+    <link rel="stylesheet" href="regstyle.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <form id="registration-form" class="form">
+                <h2>Sign Up</h2>
+                <h3>its quick and easy</h3>
+                <div class="name-fields">
+                    <input type="text" placeholder="First Name" required>
+                    <input type="text" placeholder="Last Name" required>
+                </div>
+                <input type="email" placeholder="Mobile Number or Email" required>
+                <input type="password" placeholder="New Password" required>
+                <label>Birthday</label>
+                <div class="birthday-select">
+                    <select class="birthday-day" required>
+                        <option value="" disabled selected>Day</option>
+                    </select>
+                    <select class="birthday-month" required>
+                        <option value="" disabled selected>Month</option>
+                    </select>
+                    <select class="birthday-year" required>
+                        <option value="" disabled selected>Year</option>
+                    </select>
+                </div>
+                <label>Gender</label>
+                <div class="gender-select">
+                    <label>
+                        <input type="radio" name="gender" value="female" required> Female
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="male" required> Male
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="custom" required> Custom
+                    </label>
+                </div>
+                <h4>People who use our service may have uploaded your contact information to Facebook.Learn more</h4>
+                <h4>By clicking sign up,you agree to our Terms,Privacy Policy and Cookies Policy.</h4>
+                <h4>you may receive SMS notifications from us and can opt out any time.</h4>
+                <a class="submit"><span>Sign Up</span></a>
+            </form>
+        </div>
+    </div>
+    <script>
+        // Generate options for the "Days" dropdown (1-31)
+        const dayDropdown = document.querySelector('.birthday-day');
+        for (let day = 1; day <= 31; day++) {
+          const option = document.createElement('option');
+          option.value = day;
+          option.text = day;
+          dayDropdown.appendChild(option);
+        }
+        // Generate options for the "Months" dropdown
+        const monthDropdown = document.querySelector('.birthday-month');
+        const months = [
+          "January", "February", "March", "April", "May", "June",
+          "July", "August", "September", "October", "November", "December"
+        ];
+        months.forEach(month => {
+          const option = document.createElement('option');
+          option.value = month;
+          option.text = month;
+          monthDropdown.appendChild(option);
+        });
+        // Generate options for the "Years" dropdown from 1950 to the current year
+        const yearDropdown = document.querySelector('.birthday-year');
+        const currentYear = new Date().getFullYear();
+        for (let year = 1950; year <= currentYear; year++) {
+          const option = document.createElement('option');
+          option.value = year;
+          option.text = year;
+          yearDropdown.appendChild(option);
+        }
+      </script>
+
+</body>
+</html>
